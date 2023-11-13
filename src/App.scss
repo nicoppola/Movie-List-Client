@@ -1,0 +1,93 @@
+//https://coolors.co/ffd9da-ea638c-89023e-30343f-1b2021
+
+/* SCSS HEX */
+$misty-rose: #ffd9daff;
+$blush: #ea638cff;
+$murrey: #89023eff;
+$gunmetal: #30343fff;
+$eerie-black: #1b2021ff;
+
+:export {
+  misty-rose: $misty-rose;
+  blush: $blush;
+  murrey: $murrey;
+  gunmetal: $gunmetal;
+  eerie-black: $eerie-black;
+}
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(
+  0deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-right: linear-gradient(
+  90deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-left: linear-gradient(
+  270deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+$gradient-radial: radial-gradient(
+  #ffd9daff,
+  #ea638cff,
+  #89023eff,
+  #30343fff,
+  #1b2021ff
+);
+
+h1 {
+  color: $blush;
+}
