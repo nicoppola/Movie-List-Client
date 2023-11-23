@@ -2,10 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import MovieCard from "./components/MovieCard";
-import MovieCardExpanded from "./components/MovieCardExpanded";
-import MovieCardSmall from "./components/MovieCardSmall";
+import MovieDialog from "./components/MovieDialog";
 import TopAppBar from "./components/TopAppBar";
-import Grow from "@mui/material/Grow";
 
 const movies = [
   {
@@ -26,18 +24,20 @@ function App() {
   const [isExpanded, setIsExpanded] = React.useState(false);
   const [expendedMovie, setExpendedMovie] = React.useState("");
 
-  const handleClickGrow = (movieName) => {
+  const handleClickOpen = (movieName) => {
     setIsExpanded((prev) => !prev);
     setExpendedMovie(movieName);
-    console.log("in App function!!!");
-    console.log("Name: ", expendedMovie);
+  };
+
+  const handleClose = () => {
+    setIsExpanded(false);
   };
 
   const elementRef = useRef();
 
   const movieCards = movies.map((movie) => (
-    <MovieCardSmall
-      onClick={handleClickGrow}
+    <MovieCard
+      onClick={handleClickOpen}
       ref={elementRef}
       innerRef={movie.id}
       id={movie.id}
@@ -62,30 +62,12 @@ function App() {
           style={{ display: "flex", flexWrap: "wrap", position: "relative" }}
         >
           {movieCards}
-          <Grow
-            in={isExpanded}
-            appear={true}
-            mountOnEnter={true}
-            unmountOnExit={true}
-            timeout={500}
-            style={{
-              position: "absolute",
-              transformOrigin: "center",
-              margin: "0 auto",
-              top: "40%",
-              left: "25%",
-              //transform: "translate(-50%, -50%)",
-            }}
-          >
-            <MovieCardExpanded
-              ref={elementRef}
-              innerRef={123}
-              id={123}
-              key={123}
-              name={expendedMovie}
-              reccomenders={"reccomenders"}
-            />
-          </Grow>
+          <MovieDialog
+            ref={elementRef}
+            name={expendedMovie}
+            open={isExpanded}
+            onClose={handleClose}
+          />
         </div>
       </div>
     </Container>

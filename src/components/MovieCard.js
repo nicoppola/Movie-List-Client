@@ -1,60 +1,49 @@
-import React, { useState, useRef, forwardRef } from "react";
-import MovieCardSmall from "./MovieCardSmall";
-import MovieCardExpanded from "./MovieCardExpanded";
-import Grow from "@mui/material/Grow";
-import { Box } from "@mui/material";
-import { Container } from "@mui/material";
+import React, { forwardRef } from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import movieImage from "../images/movie-img.jpeg";
+import netflixIcon from "../images/netflix-icon.png";
+import huluIcon from "../images/hulu-icon.png";
 
-export default function MovieCard(props) {
-  const [isExpanded, setIsExpanded] = React.useState(false);
-
-  const handleClickGrow = () => {
-    console.log("in function!!!");
-    setIsExpanded((prev) => !prev);
-  };
-
-  const elementRef = useRef();
-
-  const duration = 300;
-
-  const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
-    opacity: 0,
-  };
-
+const MovieCard = forwardRef(function (props, ref) {
   return (
-    <Box sx={{ display: "flex" }}>
-      <MovieCardSmall
-        onClick={handleClickGrow}
-        ref={elementRef}
-        innerRef={props.id}
-        id={props.id}
-        key={props.id}
-        name={props.name}
-        reccomenders={props.reccomenders}
+    <Card
+      onClick={() => props.onClick(props.name)}
+      ref={ref}
+      sx={{ width: 280 }}
+      style={{
+        margin: "20px 20px 20px 10px",
+      }}
+    >
+      <CardMedia
+        style={{ height: "200px", paddingTop: "2%" }}
+        component="img"
+        alt="movie image"
+        height="140"
+        image={movieImage}
       />
-      <Grow
-        in={isExpanded}
-        appear={true}
-        mountOnEnter={true}
-        unmountOnExit={true}
-        timeout={500}
-        style={{
-          position: "absolute",
-          transformOrigin: "center",
-        }}
-      >
-        <MovieCardExpanded
-          onClick={handleClickGrow}
-          appear={isExpanded}
-          ref={elementRef}
-          innerRef={props.id}
-          id={props.id}
-          key={props.id}
-          name={props.name}
-          reccomenders={props.reccomenders}
-        />
-      </Grow>
-    </Box>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {props.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          <b>Reccomended by:</b> {props.reccomenders}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button>
+          <img src={netflixIcon} width="40" alt="netflix" />
+        </Button>
+        <Button>
+          <img src={huluIcon} width="31" alt="hulu" />
+        </Button>
+      </CardActions>
+    </Card>
   );
-}
+});
+
+export default MovieCard;

@@ -10,31 +10,15 @@ import Grow from "@mui/material/Grow";
 import movieImage from "../images/movie-img.jpeg";
 import netflixIcon from "../images/netflix-icon.png";
 import huluIcon from "../images/hulu-icon.png";
+import { Dialog, DialogTitle } from "@mui/material";
 
 const MovieCardExpanded = forwardRef(function (props, ref) {
+  const { name, open, onClose } = props;
+
   return (
-    <Card
-      onClick={props.onClick}
-      ref={ref}
-      sx={{ width: 480 }}
-      style={{
-        margin: "20px 20px 20px 10px",
-        ...props.style,
-      }}
-    >
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          You Did It!!!!!!! {props.name}
-        </Typography>
-      </CardContent>
-    </Card>
-    // <Paper
-    //   sx={{ width: 300 }}
-    //   elevation={3}
-    //   style={{
-    //     margin: "20px 20px 20px 10px",
-    //   }}
-    // />
+    <Dialog onClose={onClose} open={open} ref={ref}>
+      <DialogTitle>{name}</DialogTitle>
+    </Dialog>
   );
 });
 
