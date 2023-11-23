@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
 import MovieCard from "./components/MovieCard";
@@ -18,11 +18,9 @@ const movies = [
   },
 ];
 
-function GetExpandedCard(props) {}
-
 function App() {
-  const [isExpanded, setIsExpanded] = React.useState(false);
-  const [expendedMovie, setExpendedMovie] = React.useState("");
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [expendedMovie, setExpendedMovie] = useState("");
 
   const handleClickOpen = (movieName) => {
     setIsExpanded((prev) => !prev);

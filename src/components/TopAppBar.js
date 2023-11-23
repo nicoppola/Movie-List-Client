@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import BugIcon from "@mui/icons-material/BugReport";
 import FilterIcon from "@mui/icons-material/FilterAlt";
@@ -24,7 +23,14 @@ export default function TopAppBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Nicole's Movie List
           </Typography>
-          <IconButton size="large" edge="end" aria-label="bug" sx={{ mr: 0.3 }}>
+          <IconButton
+            target="_blank"
+            href="https://github.com/nicoppola/Movie-List-Client/issues"
+            size="large"
+            edge="end"
+            aria-label="bug"
+            sx={{ mr: 0.3 }}
+          >
             <BugIcon />
           </IconButton>
           <IconButton

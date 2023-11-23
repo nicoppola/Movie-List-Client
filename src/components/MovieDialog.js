@@ -1,25 +1,51 @@
-import React, { useState, forwardRef } from "react";
-import Paper from "@mui/material/Paper";
-import CardActions from "@mui/material/CardActions";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Grow from "@mui/material/Grow";
-import movieImage from "../images/movie-img.jpeg";
+import React, { forwardRef } from "react";
 import netflixIcon from "../images/netflix-icon.png";
 import huluIcon from "../images/hulu-icon.png";
-import { Dialog, DialogTitle } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
+  Typography,
+  Button,
+} from "@mui/material";
 
-const MovieCardExpanded = forwardRef(function (props, ref) {
+const MovieDialog = forwardRef(function (props, ref) {
   const { name, open, onClose } = props;
 
   return (
     <Dialog onClose={onClose} open={open} ref={ref}>
       <DialogTitle>{name}</DialogTitle>
+      <IconButton
+        aria-label="close"
+        onClick={onClose}
+        sx={{
+          position: "absolute",
+          right: 8,
+          top: 8,
+          color: (theme) => theme.palette.grey[500],
+        }}
+      >
+        <CloseIcon />
+      </IconButton>
+
+      <DialogContent dividers>
+        <Typography paragraph={true}>
+          This will be filled in eventually probably
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+        <Button>
+          <img src={netflixIcon} width="40" alt="netflix" />
+        </Button>
+        <Button>
+          <img src={huluIcon} width="31" alt="hulu" />
+        </Button>
+      </DialogActions>
     </Dialog>
   );
 });
 
-export default MovieCardExpanded;
+export default MovieDialog;
