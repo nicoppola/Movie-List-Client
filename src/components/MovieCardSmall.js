@@ -1,4 +1,10 @@
-import React, { useState, createRef, forwardRef } from "react";
+import React, {
+  useState,
+  createRef,
+  forwardRef,
+  useCallback,
+  bind,
+} from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -9,15 +15,10 @@ import movieImage from "../images/movie-img.jpeg";
 import netflixIcon from "../images/netflix-icon.png";
 import huluIcon from "../images/hulu-icon.png";
 
-// const MovieCard = forwardRef((props, ref) => {
-//   return <MovieCardSmall ref={ref} {...props} />;
-// });
-
-//export default function MovieCardSmall(props, ref) {
 const MovieCardSmall = forwardRef(function (props, ref) {
   return (
     <Card
-      onClick={props.onClick}
+      onClick={() => props.onClick(props.name)}
       ref={ref}
       sx={{ width: 280 }}
       style={{
