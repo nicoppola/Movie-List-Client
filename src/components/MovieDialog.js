@@ -12,11 +12,11 @@ import {
   Button,
 } from "@mui/material";
 
-const MovieDialog = forwardRef(function (props, ref) {
+export default function MovieDialog(props) {
   const { name, open, onClose } = props;
 
   return (
-    <Dialog onClose={onClose} open={open} ref={ref}>
+    <Dialog onClose={onClose} open={open}>
       <DialogTitle>{name}</DialogTitle>
       <IconButton
         aria-label="close"
@@ -46,6 +46,4 @@ const MovieDialog = forwardRef(function (props, ref) {
       </DialogActions>
     </Dialog>
   );
-});
-
-export default MovieDialog;
+}

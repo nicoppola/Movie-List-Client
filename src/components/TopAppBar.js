@@ -11,7 +11,7 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 export default function TopAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="sticky">
+      <AppBar style={{ margin: "0px" }}>
         <Toolbar>
           <IconButton
             size="large"

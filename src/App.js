@@ -46,8 +46,14 @@ function App() {
   ));
 
   return (
-    <Container sx={{ bgcolor: "lightPink", height: "200vh" }}>
-      <div className="movieapp stack-large" style={{ position: "relative" }}>
+    <Container
+      sx={{ bgcolor: "lightPink", height: "200vh", width: "100%" }}
+      maxWidth={false}
+    >
+      <div
+        className="movieapp stack-large"
+        style={{ margin: "24px", position: "relative" }}
+      >
         <TopAppBar />
         <h1 align="center">Nicole's Movie List</h1>
         <TextField
