@@ -12,12 +12,12 @@ import huluIcon from "../images/hulu-icon.png";
 export interface MovieCardProps {
   name: string;
   key: string;
-  reccomenders: string;
+  genre: string;
   onClick: (name: string) => void;
 }
 
 export default function MovieCard(props: MovieCardProps) {
-  const { name, reccomenders, onClick } = props;
+  const { name, genre, onClick } = props;
   return (
     <Card
       onClick={() => props.onClick(name)}
@@ -38,7 +38,7 @@ export default function MovieCard(props: MovieCardProps) {
           {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <b>Reccomended by:</b> {reccomenders}
+          {genre}
         </Typography>
       </CardContent>
       <CardActions>
