@@ -9,11 +9,18 @@ import movieImage from "../images/movie-img.jpeg";
 import netflixIcon from "../images/netflix-icon.png";
 import huluIcon from "../images/hulu-icon.png";
 
-const MovieCard = forwardRef(function (props, ref) {
+export interface MovieCardProps {
+  name: string;
+  key: string;
+  reccomenders: string;
+  onClick: (name: string) => void;
+}
+
+export default function MovieCard(props: MovieCardProps) {
+  const { name, reccomenders, onClick } = props;
   return (
     <Card
-      onClick={() => props.onClick(props.name)}
-      ref={ref}
+      onClick={() => props.onClick(name)}
       sx={{ width: 280 }}
       style={{
         margin: "20px 20px 20px 10px",
@@ -28,10 +35,10 @@ const MovieCard = forwardRef(function (props, ref) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {props.name}
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          <b>Reccomended by:</b> {props.reccomenders}
+          <b>Reccomended by:</b> {reccomenders}
         </Typography>
       </CardContent>
       <CardActions>
@@ -44,6 +51,4 @@ const MovieCard = forwardRef(function (props, ref) {
       </CardActions>
     </Card>
   );
-});
-
-export default MovieCard;
+}

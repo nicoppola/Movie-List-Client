@@ -22,7 +22,7 @@ function App() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [expendedMovie, setExpendedMovie] = useState("");
 
-  const handleClickOpen = (movieName) => {
+  const handleClickOpen = (movieName: string) => {
     setIsExpanded((prev) => !prev);
     setExpendedMovie(movieName);
   };
@@ -31,14 +31,9 @@ function App() {
     setIsExpanded(false);
   };
 
-  const elementRef = useRef();
-
   const movieCards = movies.map((movie) => (
     <MovieCard
       onClick={handleClickOpen}
-      ref={elementRef}
-      innerRef={movie.id}
-      id={movie.id}
       key={movie.id}
       name={movie.name}
       reccomenders={movie.reccomenders}
@@ -55,7 +50,9 @@ function App() {
         style={{ margin: "24px", position: "relative" }}
       >
         <TopAppBar />
-        <h1 align="center">Nicole's Movie List</h1>
+        <br />
+        <br />
+        <br />
         <TextField
           fullWidth
           type="search"
@@ -63,11 +60,11 @@ function App() {
           id="movie-search-text-field"
         />
         <div
+          className="movie-cards"
           style={{ display: "flex", flexWrap: "wrap", position: "relative" }}
         >
           {movieCards}
           <MovieDialog
-            ref={elementRef}
             name={expendedMovie}
             open={isExpanded}
             onClose={handleClose}

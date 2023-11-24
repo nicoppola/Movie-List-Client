@@ -14,10 +14,13 @@ module.exports = {
   devServer: {
     port: 3030, // you can change the port
   },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+  },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // .js and .jsx files
+        test: /\.(js|jsx|tsx|ts)$/, // .js and .jsx files
         exclude: /node_modules/, // excluding the node_modules folder
         use: {
           loader: "babel-loader",

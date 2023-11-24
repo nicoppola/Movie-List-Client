@@ -12,7 +12,13 @@ import {
   Button,
 } from "@mui/material";
 
-export default function MovieDialog(props) {
+export interface MovieDialogProps {
+  name: string;
+  open: boolean;
+  onClose: () => void;
+}
+
+export default function MovieDialog(props: MovieDialogProps) {
   const { name, open, onClose } = props;
 
   return (
